@@ -50,6 +50,7 @@ class HomeViewModel : ViewModel() {
                     val body = JSONObject(response.body!!.string())
                     val main = body.getJSONObject("main")
                     val weather = body.getJSONArray("weather").getJSONObject(0)
+                    val wind = body.getJSONObject("wind")
 
                     Log.d("JSON Body", body.toString())
 
@@ -57,7 +58,10 @@ class HomeViewModel : ViewModel() {
                         location = body.get("name").toString(),
                         temperature = main.get("temp").toString(),
                         pressure = main.get("pressure").toString(),
-                        weather = weather.get("main").toString()
+                        weather = weather.get("main").toString(),
+
+                        wind = wind.get("speed").toString(),
+                        seaLevel = main.get("sea_level").toString()
                     )
                     applySource(lastSource!!)
 

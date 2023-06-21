@@ -33,7 +33,10 @@ class SourceAdapter : RecyclerView.Adapter<SourceAdapter.SourceViewHolder>(){
         val source = sources[position]
 
         binding.apply {
-            tvName.text = source.location
+            tvLocation.text = source.location
+            tvTemperature.text = source.temperature
+            tvPressure.text = source.pressure
+            tvWeather.text = source.weather
             root.setOnClickListener {
                 onItemClickListener?.let { click ->
                     click(source)
