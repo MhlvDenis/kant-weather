@@ -1,1 +1,1 @@
-# news-reader
+# kant-weather
